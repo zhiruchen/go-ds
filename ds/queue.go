@@ -16,6 +16,7 @@ func (q *Queue) Dequeue() interface{} {
 	if len(q.Elements) == 0 {
 		return nil
 	}
-
-	return q.Elements[0]
+	e := q.Elements[0]
+	q.Elements = q.Elements[1:]
+	return e
 }
