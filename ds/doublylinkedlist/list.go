@@ -7,6 +7,14 @@ type Node struct {
 	next *Node
 }
 
+func (n *Node) Prev() *Node {
+	return n.prev
+}
+
+func (n *Node) Next() *Node {
+	return n.next
+}
+
 // DoublyLinkedList 双向链表
 type DoublyLinkedList struct {
 	head  *Node
@@ -98,6 +106,22 @@ func (l *DoublyLinkedList) Remove(node *Node) *Node {
 	node.next.prev = node.prev
 	l.count--
 	return node
+}
+
+func (l *DoublyLinkedList) MoveToFront(node *Node) {
+	h := l.Head()
+	if h == nil {
+		return
+	}
+
+	if node.Val == h.Val {
+		return
+	}
+
+	n := l.Remove(node)
+	if n != nil {
+		l.InsertBegin(n)
+	}
 }
 
 // Len 返回链表的长度
