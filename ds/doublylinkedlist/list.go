@@ -109,18 +109,30 @@ func (l *DoublyLinkedList) Remove(node *Node) *Node {
 }
 
 func (l *DoublyLinkedList) MoveToFront(node *Node) {
-	h := l.Head()
-	if h == nil {
+
+	if l.count == 1 || l.count == 0 {
 		return
 	}
 
-	if node.Val == h.Val {
-		return
-	}
+	if node != nil {
+		prevNode := node.prev
+		if prevNode == nil {
+			return
+		}
+		nextNode := node.next
 
-	n := l.Remove(node)
-	if n != nil {
-		l.InsertBegin(n)
+		if nextNode == nil {
+			prevNode.next = nil
+		} else {
+			prevNode.next = nextNode
+			nextNode.prev = prevNode
+		}
+
+		l.head.prev = node
+		node.next = l.head
+		node.prev = nil
+
+		l.head = node
 	}
 }
 
