@@ -3,8 +3,8 @@ package advanced
 import "testing"
 
 func TestTrie_Search(t *testing.T) {
-	testCases := []struct{
-		keys []string
+	testCases := []struct {
+		keys   []string
 		target string
 		result bool
 	}{
@@ -34,8 +34,8 @@ func TestTrie_Search(t *testing.T) {
 }
 
 func TestTrie_Delete(t *testing.T) {
-	testCases := []struct{
-		keys []string
+	testCases := []struct {
+		keys   []string
 		target string
 		result bool
 	}{

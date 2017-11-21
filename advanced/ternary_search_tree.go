@@ -1,8 +1,8 @@
 package advanced
 
 type TSTNode struct {
-	val rune
-	endOfStr bool
+	val              rune
+	endOfStr         bool
 	left, mid, right *TSTNode
 }
 
@@ -35,7 +35,7 @@ func put(node *TSTNode, key string, d int) *TSTNode {
 	} else if val > node.val {
 		node.right = put(node.right, key, d)
 	} else {
-		if d < len(key) - 1 {
+		if d < len(key)-1 {
 			node.mid = put(node.mid, key, d+1)
 		} else {
 			node.val = val
@@ -70,7 +70,7 @@ func (t *TST) get(node *TSTNode, key string, d int) *TSTNode {
 		return t.get(node.right, key, d)
 	}
 
-	if d < len(key) - 1 {
+	if d < len(key)-1 {
 		return t.get(node.mid, key, d+1)
 	}
 

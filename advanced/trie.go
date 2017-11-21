@@ -82,7 +82,7 @@ func (t *Trie) delete(key string, currentNode *TrieNode, level, length int) bool
 			return currentNode.isFreeNode()
 
 		} else {
-			index := key[level]-'a'
+			index := key[level] - 'a'
 			if t.delete(key, currentNode.children[index], level+1, length) {
 				currentNode.children[index] = nil
 

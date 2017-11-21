@@ -7,7 +7,7 @@ package advanced
 	递归的  output = RecurReverseString(["2","3"])+["1"]
            output = RecurReverseString(["3"]) + ["2"] + ["1"]
 		   output = ["3"] + ["2"] + ["1"]
- */
+*/
 func RecurReverseString(input []string) []string {
 	if len(input) == 1 {
 		return input

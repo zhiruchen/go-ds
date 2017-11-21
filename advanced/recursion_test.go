@@ -3,8 +3,8 @@ package advanced
 import "testing"
 
 func TestRecurReverseString(t *testing.T) {
-	testCases := []struct{
-		input []string
+	testCases := []struct {
+		input  []string
 		output []string
 	}{
 		{
@@ -12,19 +12,19 @@ func TestRecurReverseString(t *testing.T) {
 			[]string{"3", "2", "1"},
 		},
 		{
-			[]string{"a","b","c"},
-			[]string{"c","b","a"},
+			[]string{"a", "b", "c"},
+			[]string{"c", "b", "a"},
 		},
 
 		{
-			[]string{"x","y","z","123"},
-			[]string{"123", "z","y","x"},
+			[]string{"x", "y", "z", "123"},
+			[]string{"123", "z", "y", "x"},
 		},
 	}
 
 	for _, c := range testCases {
 		c.input = RecurReverseString(c.input)
-		if !listEqual(c.input,c.output) {
+		if !listEqual(c.input, c.output) {
 			t.Errorf("reverse str list, expect: %v, get: %v\n", c.output, c.input)
 		}
 	}

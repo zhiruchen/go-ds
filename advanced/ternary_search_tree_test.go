@@ -3,8 +3,8 @@ package advanced
 import "testing"
 
 func TestTST_Contains(t *testing.T) {
-	testCases := []struct{
-		input []string
+	testCases := []struct {
+		input  []string
 		target string
 		result bool
 	}{
