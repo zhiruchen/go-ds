@@ -11,6 +11,20 @@ type Trie struct {
 	root *TrieNode
 }
 
+func (t *TrieNode) isLeafNode() bool {
+	return t.endOfWord
+}
+
+func (t *TrieNode) isFreeNode() bool {
+	for _, n := range t.children {
+		if n != nil {
+			return false
+		}
+	}
+
+	return true
+}
+
 func NewTrie() *Trie {
 	return &Trie{
 		root: &TrieNode{
@@ -52,4 +66,30 @@ func (t *Trie) Search(key string) bool {
 	}
 
 	return p != nil && p.endOfWord
+}
+
+func (t *Trie) Delete(key string) bool {
+	return t.delete(key, t.root, 0, len(key))
+}
+
+func (t *Trie) delete(key string, currentNode *TrieNode, level, length int) bool {
+	if currentNode != nil {
+		if level == length {
+			if currentNode.endOfWord {
+				currentNode.endOfWord = false
+			}
+
+			return currentNode.isFreeNode()
+
+		} else {
+			index := key[level]-'a'
+			if t.delete(key, currentNode.children[index], level+1, length) {
+				currentNode.children[index] = nil
+
+				return !currentNode.isLeafNode() && currentNode.isFreeNode()
+			}
+		}
+	}
+
+	return false
 }
