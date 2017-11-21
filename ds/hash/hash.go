@@ -6,7 +6,7 @@ import (
 )
 
 const bucketSize uint64 = 1 << 4
-const loadFactor float64 = .75
+const loadFactor  = .75
 
 type kv struct {
 	Key string
