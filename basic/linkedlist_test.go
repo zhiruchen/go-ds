@@ -4,24 +4,24 @@ import "testing"
 
 func TestLinkedList_InsertToFront(t *testing.T) {
 
-	testCases := []struct{
-		data []interface{}
+	testCases := []struct {
+		data   []interface{}
 		result string
 	}{
 		{
-			data: []interface{}{"1", "2", "3", "4"},
+			data:   []interface{}{"1", "2", "3", "4"},
 			result: "4->3->2->1",
 		},
 		{
-			data: []interface{}{},
+			data:   []interface{}{},
 			result: "",
 		},
 		{
-			data: []interface{}{"1"},
+			data:   []interface{}{"1"},
 			result: "1",
 		},
 		{
-			data: []interface{}{1,2,3,4},
+			data:   []interface{}{1, 2, 3, 4},
 			result: "4->3->2->1",
 		},
 	}
@@ -40,24 +40,24 @@ func TestLinkedList_InsertToFront(t *testing.T) {
 }
 
 func TestLinkedList_AppendToTail(t *testing.T) {
-	testCases := []struct{
-		data []interface{}
+	testCases := []struct {
+		data   []interface{}
 		result string
 	}{
 		{
-			data: []interface{}{"1", "2", "3", "4"},
+			data:   []interface{}{"1", "2", "3", "4"},
 			result: "1->2->3->4",
 		},
 		{
-			data: []interface{}{},
+			data:   []interface{}{},
 			result: "",
 		},
 		{
-			data: []interface{}{"1"},
+			data:   []interface{}{"1"},
 			result: "1",
 		},
 		{
-			data: []interface{}{1,2,3,4},
+			data:   []interface{}{1, 2, 3, 4},
 			result: "1->2->3->4",
 		},
 	}
@@ -76,35 +76,35 @@ func TestLinkedList_AppendToTail(t *testing.T) {
 }
 
 func TestLinkedList_DeleteNode(t *testing.T) {
-	testCases := []struct{
-		data []interface{}
+	testCases := []struct {
+		data          []interface{}
 		deleteElement interface{}
-		result string
+		result        string
 	}{
 		{
-			data: []interface{}{"1", "2", "3", "4"},
+			data:          []interface{}{"1", "2", "3", "4"},
 			deleteElement: "1",
-			result: "2->3->4",
+			result:        "2->3->4",
 		},
 		{
-			data: []interface{}{},
+			data:          []interface{}{},
 			deleteElement: "x",
-			result: "",
+			result:        "",
 		},
 		{
-			data: []interface{}{"1"},
+			data:          []interface{}{"1"},
 			deleteElement: "1",
-			result: "",
+			result:        "",
 		},
 		{
-			data: []interface{}{1,2,3,4},
+			data:          []interface{}{1, 2, 3, 4},
 			deleteElement: 4,
-			result: "1->2->3",
+			result:        "1->2->3",
 		},
 		{
-			data: []interface{}{1,2,3,4,5},
+			data:          []interface{}{1, 2, 3, 4, 5},
 			deleteElement: 3,
-			result: "1->2->4->5",
+			result:        "1->2->4->5",
 		},
 	}
 

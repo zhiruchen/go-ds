@@ -1,9 +1,9 @@
 package basic
 
 import (
+	"errors"
 	"fmt"
 	"strings"
-	"errors"
 )
 
 type linkListNode struct {
@@ -20,17 +20,17 @@ func (n *linkListNode) GetData() (interface{}, error) {
 }
 
 type LinkedList struct {
-	head *linkListNode
-	tail *linkListNode
+	head  *linkListNode
+	tail  *linkListNode
 	count int32
 }
 
 func NewLinkedList() *LinkedList {
-	return &LinkedList{head:nil, tail: nil, count:0}
+	return &LinkedList{head: nil, tail: nil, count: 0}
 }
 
 func (ll *LinkedList) InsertToFront(data interface{}) {
-	node := &linkListNode{data:data, next:nil}
+	node := &linkListNode{data: data, next: nil}
 	ll.count++
 	if ll.head == nil {
 		ll.head = node
@@ -42,7 +42,7 @@ func (ll *LinkedList) InsertToFront(data interface{}) {
 }
 
 func (ll *LinkedList) AppendToTail(data interface{}) {
-	node := &linkListNode{data:data, next:nil}
+	node := &linkListNode{data: data, next: nil}
 	ll.count++
 
 	if ll.head == nil {

@@ -3,20 +3,20 @@ package basic
 import "testing"
 
 func TestStack_Push(t *testing.T) {
-	testCases := []struct{
+	testCases := []struct {
 		elements []interface{}
-		result string
-		isEmpty bool
+		result   string
+		isEmpty  bool
 	}{
 		{
-			elements:[]interface{}{},
-			result:"",
-			isEmpty:true,
+			elements: []interface{}{},
+			result:   "",
+			isEmpty:  true,
 		},
 		{
-			elements:[]interface{}{1,2,3,4},
-			result:"4->3->2->1",
-			isEmpty:false,
+			elements: []interface{}{1, 2, 3, 4},
+			result:   "4->3->2->1",
+			isEmpty:  false,
 		},
 	}
 
@@ -39,24 +39,24 @@ func TestStack_Push(t *testing.T) {
 }
 
 func TestStack_Pop(t *testing.T) {
-	testCases := []struct{
+	testCases := []struct {
 		elements []interface{}
-		result interface{}
+		result   interface{}
 		stackStr string
 	}{
 		{
-			elements:[]interface{}{},
-			result: nil,
+			elements: []interface{}{},
+			result:   nil,
 			stackStr: "",
 		},
 		{
-			elements:[]interface{}{1,2,3,4},
-			result:4,
+			elements: []interface{}{1, 2, 3, 4},
+			result:   4,
 			stackStr: "3->2->1",
 		},
 		{
-			elements:[]interface{}{"1", "2", "3", "4"},
-			result:"4",
+			elements: []interface{}{"1", "2", "3", "4"},
+			result:   "4",
 			stackStr: "3->2->1",
 		},
 	}
@@ -86,21 +86,21 @@ func TestStack_Pop(t *testing.T) {
 }
 
 func TestStack_Peek(t *testing.T) {
-	testCases := []struct{
+	testCases := []struct {
 		elements []interface{}
-		result interface{}
+		result   interface{}
 	}{
 		{
-			elements:[]interface{}{},
-			result: nil,
+			elements: []interface{}{},
+			result:   nil,
 		},
 		{
-			elements:[]interface{}{1,2,3,4},
-			result:4,
+			elements: []interface{}{1, 2, 3, 4},
+			result:   4,
 		},
 		{
-			elements:[]interface{}{"1", "2", "3", "4"},
-			result:"4",
+			elements: []interface{}{"1", "2", "3", "4"},
+			result:   "4",
 		},
 	}
 

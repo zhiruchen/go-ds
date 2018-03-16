@@ -1,8 +1,8 @@
 package basic
 
 import (
-	"testing"
 	"github.com/stretchr/testify/assert"
+	"testing"
 )
 
 func TestIsStrongNumber(t *testing.T) {

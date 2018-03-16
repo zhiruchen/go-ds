@@ -6,11 +6,11 @@ const maxStackSize = 100000
 
 type Stack struct {
 	elements *LinkedList
-	count int32
+	count    int32
 }
 
 func NewStack() *Stack {
-	return &Stack{elements:NewLinkedList(), count:0}
+	return &Stack{elements: NewLinkedList(), count: 0}
 }
 
 func (s *Stack) Push(data interface{}) {
