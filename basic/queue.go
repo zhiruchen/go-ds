@@ -31,6 +31,7 @@ func (q *Queue) Dequeue() (interface{}, error) {
 
 	head := q.elements.GetHead()
 	q.elements.RemoveHead()
+	q.count--
 
 	return head.GetData()
 }

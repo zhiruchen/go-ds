@@ -47,7 +47,7 @@ func partition(array []int32, low, high int) int {
 }
 
 func SelectKthSmallElement(array []int32, k int) int32 {
-	if  k < 0 || k >= len(array) {
+	if k < 0 || k >= len(array) {
 		panic("k is invalid")
 	}
 
@@ -63,7 +63,7 @@ func SelectKthSmallElement(array []int32, k int) int32 {
 		} else {
 			return array[p]
 		}
- 	}
+	}
 
- 	return array[low]
+	return array[low]
 }

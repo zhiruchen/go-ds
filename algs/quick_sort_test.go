@@ -39,27 +39,27 @@ func TestQuickSort(t *testing.T) {
 func TestSelectKthSmallElement(t *testing.T) {
 	testCases := []struct {
 		input  []int32
-		k int
+		k      int
 		output int32
 	}{
 		{
 			input:  []int32{1, 2, 3, 4, 5},
-			k: 3,
+			k:      3,
 			output: 4,
 		},
 		{
 			input:  []int32{7, 3, 2, 5, 1, 6},
-			k: 2,
+			k:      2,
 			output: 3,
 		},
 		{
 			input:  []int32{7, 3, 2, 5, 1, 6, 0},
-			k: 5,
+			k:      5,
 			output: 6,
 		},
 		{
 			input:  []int32{100},
-			k: 0,
+			k:      0,
 			output: 100,
 		},
 	}
