@@ -61,6 +61,10 @@ func (bst *BinarySearchTree) Delete(key *BSTNode) {
 }
 
 func deleteBSTNode(node *BSTNode, key *BSTNode) *BSTNode {
+	if key == nil {
+		return node
+	}
+
 	if key.data.Equal(node.data) {
 		t := node
 		if t.left == nil {
