@@ -57,6 +57,7 @@ func (bst *BinarySearchTree) Delete(key *BSTNode) {
 		return
 	}
 
+	bst.root = deleteBSTNode(bst.root, key)
 }
 
 func deleteBSTNode(node *BSTNode, key *BSTNode) *BSTNode {
