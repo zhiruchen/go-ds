@@ -12,11 +12,11 @@ func TestCoinRow(t *testing.T) {
 			maxAmount: 101,
 		},
 		{
-			coins:     []int32{0, 6, 8, 12,199},
+			coins:     []int32{0, 6, 8, 12, 199},
 			maxAmount: 207,
 		},
 		{
-			coins:     []int32{0, 5,1,2,10,6,2},
+			coins:     []int32{0, 5, 1, 2, 10, 6, 2},
 			maxAmount: 17,
 		},
 	}
