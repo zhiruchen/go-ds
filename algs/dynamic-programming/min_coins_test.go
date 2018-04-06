@@ -3,46 +3,46 @@ package dynamic_programming
 import "testing"
 
 func TestMinNumberOfCoins(t *testing.T) {
-	testCases := []struct{
+	testCases := []struct {
 		coins []int32
-		s int32
-		num int32
+		s     int32
+		num   int32
 	}{
 		{
-			coins: []int32{1,3,5},
-			s: 1,
-			num: 1,
+			coins: []int32{1, 3, 5},
+			s:     1,
+			num:   1,
 		},
 		{
-			coins: []int32{1,3,5},
-			s: 3,
-			num: 1,
+			coins: []int32{1, 3, 5},
+			s:     3,
+			num:   1,
 		},
 		{
-			coins: []int32{1,3,5},
-			s: 5,
-			num: 1,
+			coins: []int32{1, 3, 5},
+			s:     5,
+			num:   1,
 		},
 		{
-			coins: []int32{1,3,5},
-			s: 4,
-			num:2,
+			coins: []int32{1, 3, 5},
+			s:     4,
+			num:   2,
 		},
 		{
-			coins: []int32{1,3,5},
-			s: 8,
-			num: 2,
+			coins: []int32{1, 3, 5},
+			s:     8,
+			num:   2,
 		},
 
 		{
-			coins: []int32{1,3,5},
-			s: 0,
-			num: 0,
+			coins: []int32{1, 3, 5},
+			s:     0,
+			num:   0,
 		},
 		{
-			coins: []int32{1,3,5},
-			s: 11,
-			num: 3,
+			coins: []int32{1, 3, 5},
+			s:     11,
+			num:   3,
 		},
 	}
 
