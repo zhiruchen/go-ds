@@ -126,3 +126,22 @@ func (ll *LinkedList) String() string {
 
 	return strings.Join(nodes, "->")
 }
+
+// Reverse reverse a linked list
+func (ll *LinkedList) Reverse() {
+	if ll.head == nil {
+		return
+	}
+
+	var currentNode *linkListNode
+	ll.tail = ll.head
+
+	for ll.head != nil {
+		tmp := ll.head.next
+		ll.head.next = currentNode
+		currentNode = ll.head
+		ll.head = tmp
+	}
+
+	ll.head = currentNode
+}

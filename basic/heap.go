@@ -95,7 +95,7 @@ func (h *BinaryHeap) DeleteRoot() Comparer {
 	if length == 2 {
 		h.elements = []Comparer{nil}
 	} else {
-		lastIndex := length-1
+		lastIndex := length - 1
 		h.elements[1] = h.elements[lastIndex]
 		h.elements = append(h.elements[:lastIndex], h.elements[lastIndex+1:]...)
 		h.HeapifyDown()

@@ -122,3 +122,40 @@ func TestLinkedList_DeleteNode(t *testing.T) {
 		}
 	}
 }
+
+func TestLinkedList_Reverse(t *testing.T) {
+	testCases := []struct {
+		data   []interface{}
+		result string
+	}{
+		{
+			data:   []interface{}{"1", "2", "3", "4"},
+			result: "4->3->2->1",
+		},
+		{
+			data:   []interface{}{},
+			result: "",
+		},
+		{
+			data:   []interface{}{"1"},
+			result: "1",
+		},
+		{
+			data:   []interface{}{4, 3, 2, 1},
+			result: "1->2->3->4",
+		},
+	}
+
+	for _, cc := range testCases {
+		ll := NewLinkedList()
+		for _, dt := range cc.data {
+			ll.AppendToTail(dt)
+		}
+
+		ll.Reverse()
+		dataStr := ll.String()
+		if cc.result != dataStr {
+			t.Errorf("Expected %s, get %s\n", cc.result, dataStr)
+		}
+	}
+}
