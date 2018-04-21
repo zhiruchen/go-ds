@@ -5,3 +5,7 @@ type Comparer interface {
 	Equal(v Comparer) bool
 	Less(v Comparer) bool
 }
+
+type Comparator interface {
+	Compare(other Comparator) int
+}
