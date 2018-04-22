@@ -161,6 +161,87 @@ func TestBinaryTree_PostOrder(t *testing.T) {
 	}
 }
 
+func TestBinaryTree_LowestCommonAncestor(t *testing.T) {
+	tNode := &BinTreeNode{
+		data: 1,
+		left: &BinTreeNode{
+			data: 2,
+			left: &BinTreeNode{
+				data: 3,
+				left: nil,
+				right: &BinTreeNode{
+					data:  4,
+					left:  nil,
+					right: nil,
+				},
+			},
+			right: &BinTreeNode{
+				data: 5,
+				left: &BinTreeNode{
+					data:  6,
+					left:  nil,
+					right: nil,
+				},
+				right: &BinTreeNode{
+					data:  7,
+					left:  nil,
+					right: nil,
+				},
+			},
+		},
+		right: &BinTreeNode{
+			data:  8,
+			left:  nil,
+			right: nil,
+		},
+	}
+	testCases := []struct {
+		n1, n2 interface{}
+		result *BinTreeNode
+	}{
+		{
+			n1:     3,
+			n2:     4,
+			result: &BinTreeNode{data: 3, left: nil, right: &BinTreeNode{data: 4, left: nil, right: nil}},
+		},
+		{
+			n1:     5,
+			n2:     6,
+			result: &BinTreeNode{data: 5, left: &BinTreeNode{data: 6, left: nil, right: nil}, right: &BinTreeNode{data: 7, left: nil, right: nil}},
+		},
+		{
+			n1:     2,
+			n2:     8,
+			result: &BinTreeNode{data: 1, left: &BinTreeNode{data: 2, left: nil, right: nil}, right: &BinTreeNode{data: 8, left: nil, right: nil}},
+		},
+		{
+			n1:     4,
+			n2:     7,
+			result: &BinTreeNode{data: 2, left: &BinTreeNode{data: 3, left: nil, right: nil}, right: &BinTreeNode{data: 5, left: nil, right: nil}},
+		},
+		{
+			n1:     4,
+			n2:     5,
+			result: &BinTreeNode{data: 2, left: &BinTreeNode{data: 3, left: nil, right: nil}, right: &BinTreeNode{data: 5, left: nil, right: nil}},
+		},
+		{
+			n1:     6,
+			n2:     8,
+			result: &BinTreeNode{data: 1, left: &BinTreeNode{data: 2, left: nil, right: nil}, right: &BinTreeNode{data: 8, left: nil, right: nil}},
+		},
+	}
+
+	for _, cc := range testCases {
+		binTree := NewBinaryTree(tNode)
+		node := binTree.LowestCommonAncestor(cc.n1, cc.n2)
+		t.Logf("node: %v\n", node)
+
+		if node.data != cc.result.data {
+			t.Errorf("Expected %v, get: %v\n", cc.result, node)
+		}
+	}
+}
+
 func TestBinaryTree_LevelOrder(t *testing.T) {
 	testCases := []struct {
 		node   *BinTreeNode

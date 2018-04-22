@@ -123,3 +123,30 @@ func (b *BinaryTree) LevelOrder() ([]interface{}, error) {
 
 	return sl, nil
 }
+
+func (b *BinaryTree) LowestCommonAncestor(n1, n2 interface{}) *BinTreeNode {
+	return lowestCommonAncestor(b.root, n1, n2)
+}
+
+func lowestCommonAncestor(node *BinTreeNode, n1, n2 interface{}) *BinTreeNode {
+	if node == nil {
+		return nil
+	}
+
+	if node.data == n1 || node.data == n2 {
+		return node
+	}
+
+	leftLCA := lowestCommonAncestor(node.left, n1, n2)
+	rightLCA := lowestCommonAncestor(node.right, n1, n2)
+
+	if leftLCA != nil && rightLCA != nil {
+		return node
+	}
+
+	if leftLCA != nil {
+		return leftLCA
+	}
+
+	return rightLCA
+}
