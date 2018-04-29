@@ -150,3 +150,37 @@ func lowestCommonAncestor(node *BinTreeNode, n1, n2 interface{}) *BinTreeNode {
 
 	return rightLCA
 }
+
+// IsSubTree 检查t2是否为当前二叉树的子树
+func (b *BinaryTree) IsSubTree(t2 *BinaryTree) bool {
+	return isSubTree(b.root, t2.root)
+}
+
+// 检查t2是否是t1的子树
+func isSubTree(t1, t2 *BinTreeNode) bool {
+	if t2 == nil {
+		return true
+	}
+
+	if t1 == nil {
+		return false
+	}
+
+	if isIdentical(t1, t2) {
+		return true
+	}
+
+	return isSubTree(t1.left, t2) || isSubTree(t1.right, t2)
+}
+
+func isIdentical(r1, r2 *BinTreeNode) bool {
+	if r1 == nil && r2 == nil {
+		return true
+	}
+
+	if r1 == nil || r2 == nil {
+		return false
+	}
+
+	return r1.data == r2.data && isIdentical(r1.left, r2.left) && isIdentical(r1.right, r2.right)
+}

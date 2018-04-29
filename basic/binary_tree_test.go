@@ -298,3 +298,125 @@ func TestBinaryTree_LevelOrder(t *testing.T) {
 		}
 	}
 }
+
+/*
+				              1
+---------------------------------------------------------------
+					2                  8
+---------------------------------------------------------------
+			3       	  5
+---------------------------------------------------------------
+               4      6       7
+
+
+
+*/
+func TestBinaryTree_IsSubTree(t *testing.T) {
+	baseTree := &BinTreeNode{
+		data: 1,
+		left: &BinTreeNode{
+			data: 2,
+			left: &BinTreeNode{
+				data: 3,
+				left: nil,
+				right: &BinTreeNode{
+					data:  4,
+					left:  nil,
+					right: nil,
+				},
+			},
+			right: &BinTreeNode{
+				data: 5,
+				left: &BinTreeNode{
+					data:  6,
+					left:  nil,
+					right: nil,
+				},
+				right: &BinTreeNode{
+					data:  7,
+					left:  nil,
+					right: nil,
+				},
+			},
+		},
+		right: &BinTreeNode{
+			data: 8,
+		},
+	}
+
+	testCases := []struct {
+		node1  *BinTreeNode
+		node2  *BinTreeNode
+		result bool
+	}{
+		{
+			node1: baseTree,
+			node2: &BinTreeNode{
+				data: 5,
+				left: &BinTreeNode{
+					data: 6,
+				},
+				right: &BinTreeNode{
+					data: 7,
+				},
+			},
+			result: true,
+		},
+		{
+			node1: baseTree,
+			node2: &BinTreeNode{
+				data: 1,
+				left: &BinTreeNode{
+					data: 2,
+				},
+				right: &BinTreeNode{
+					data: 8,
+				},
+			},
+			result: false,
+		},
+		{
+			node1: baseTree,
+			node2: &BinTreeNode{
+				data:  1,
+				left:  nil,
+				right: nil,
+			},
+			result: false,
+		},
+		{
+			node1: baseTree,
+			node2: &BinTreeNode{
+				data: 1,
+				left: &BinTreeNode{
+					data: 2,
+				},
+				right: nil,
+			},
+			result: false,
+		},
+		{
+			node1: baseTree,
+			node2: &BinTreeNode{
+				data: 3,
+				left: nil,
+				right: &BinTreeNode{
+					data: 4,
+				},
+			},
+			result: true,
+		},
+	}
+
+	for _, cc := range testCases {
+		binTree1 := NewBinaryTree(cc.node1)
+		binTree2 := NewBinaryTree(cc.node2)
+
+		result := binTree1.IsSubTree(binTree2)
+		if cc.result != result {
+			t.Errorf("Expected %v, get: %v\n", cc.result, result)
+			vs, _ := binTree2.LevelOrder()
+			t.Logf("t2: %v\n", vs)
+		}
+	}
+}
